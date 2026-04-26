@@ -13,7 +13,7 @@ function Home() {
     const fetchTodos = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://localhost:3000/todo/fetch", {
+        const response = await axios.get("https://fullstack-todo-app-1vr5.onrender.com/todo/fetch", {
           withCredentials: true,
           headers: {
             "Content-Type": "application/json",
@@ -36,7 +36,7 @@ function Home() {
     if (!newTodo) return;
     try {
       const response = await axios.post(
-        "http://localhost:3000/todo/create",
+        "https://fullstack-todo-app-1vr5.onrender.com/todo/create",
         {
           title: newTodo,
           completed: false,
@@ -57,7 +57,7 @@ function Home() {
     const todo = todos.find((t) => t._id === id);
     try {
       const response = await axios.put(
-        `http://localhost:3000/todo/update/${id}`,
+        `https://fullstack-todo-app-1vr5.onrender.com/todo/update/${id}`,
         {
           ...todo,
           completed: !todo.completed,
@@ -76,7 +76,7 @@ function Home() {
 
   const deleteTodo = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/todo/delete/${id}`, { withCredentials: true });
+      await axios.delete(`https://fullstack-todo-app-1vr5.onrender.com/todo/delete/${id}`, { withCredentials: true });
       setTodos(todos.filter((t) => t._id != id));
     } catch (error) {
       setError("Failed to delete todo");
@@ -86,7 +86,7 @@ function Home() {
   const navigateTo = useNavigate();
   const logout = async () => {
     try {
-      axios.get("http://localhost:3000/user/logout", {
+      axios.get("https://fullstack-todo-app-1vr5.onrender.com/user/logout", {
         withCredentials: true,
       });
       toast.success("User logout successfully");
