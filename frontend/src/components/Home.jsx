@@ -19,7 +19,7 @@ function Home() {
             "Content-Type": "application/json",
           },
         });
-        console.log(response.data);
+        
         setTodos(response.data.todos);
         setError(null);
       } catch (error) {
@@ -45,7 +45,7 @@ function Home() {
           withCredentials: true,
         },
       );
-      console.log(response.data.todos);
+      
       setTodos([...todos, response.data.todos]);
       setNewTodo("");
     } catch (error) {
@@ -66,7 +66,7 @@ function Home() {
           withCredentials: true,
         },
       );
-      console.log(response.data);
+     
 
       setTodos(todos.map((t) => (t._id === id ? response.data.todo : t)));
     } catch (error) {
