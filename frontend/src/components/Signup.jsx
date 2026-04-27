@@ -28,7 +28,7 @@ function Signup() {
           },
         },
       );
-      console.log(data);
+      \
       toast.success(data.message || "User registered Successfully");
       localStorage.setItem("jwt", data.token);
       navigateTo("/login");
@@ -37,7 +37,7 @@ function Signup() {
       setEmail("");
       setPassword("");
     } catch (error) {
-      console.log(error.response.data.errors);
+      
       toast.error(error.response.data.errors || "User registration failed");
     }
   };
